@@ -1,0 +1,39 @@
+Ques:
+Given the head of a singly linked list, return the middle node of the linked list.
+If there are two middle nodes, return the second middle node.
+
+-Brute force
+ Code:
+ class solution{
+   public ListNode getMiddle(ListNode head){
+     int n;
+     ListNode temp=head;
+     while(temp!=null){
+      ans++;
+     }
+     n=n/2+1;temp=head;
+     while(n-->0){
+      temp=temp.next;
+     }
+     return temp;
+    }
+  }
+  
+  Time-complexity:  O(n)+O(n/2)===O(n)
+  Space-complexity:  O(1)
+  
+-Optimised
+  code:
+  class solution{
+   public ListNode getMiddle(ListNode head){
+     ListNode slow=head,fast=head;
+     while(fast.next!=null && fast.next.next!=null){
+      slow=slow.next;
+      fast=fast.next.next;
+     }
+     return slow;
+    }
+  }
+  
+  Time-complexity: O(n/2)
+  space=complexity: O(1)
