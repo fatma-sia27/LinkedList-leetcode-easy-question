@@ -1,0 +1,38 @@
+Ques:
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+Code:
+
+(Iterative solution)
+Time complexity: O(n)
+Space-complexity: O(1)
+
+ class solution{
+  public ListNode reverseList(ListNode head){
+   ListNode pre=null, curr=head, nxt=head.next;
+   while(curr!=null){
+     curr.next=pre;
+     pre=curr;
+     curr=nxt;
+     if(nxt.next!=null) nxt=nxt.next;
+   }
+   return pre;
+  }
+}
+
+(Recursive solution)
+Time complexity: O(n)
+Space-complexity: O(1)
+
+ class solution{
+   public ListNode reverse(ListNode head){
+     if(head==null || head.next==null) return head;
+      ListNode newHead=reverse(head.next);
+      head.next.next=head;
+      head.next=null;
+      return newHead;
+    }
+    public ListNode reverseList(ListNode head){
+      return reverse(head);
+    }
+  }
